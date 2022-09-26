@@ -2,7 +2,7 @@ import CryptoJS from "crypto-js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const cryptoEncryptPassword = (p) => {
+const encryptPassword = (p) => {
   const encrypt = CryptoJS.AES.encrypt(
     p,
     process.env.CRYPTO_SECRET_KEY
@@ -20,4 +20,4 @@ const decryptPassword = (password) => {
   return decryptedPassword;
 };
 
-export { cryptoEncryptPassword, decryptPassword };
+export { encryptPassword, decryptPassword };

@@ -2,8 +2,8 @@ import expressAsyncHandler from "express-async-handler";
 import { Validator } from "node-input-validator";
 import { checkValidation, error, failed } from "../config/validator.js";
 import {
-  cryptoEncryptPassword,
   decryptPassword,
+  encryptPassword,
 } from "../config/cryptoEncryptDecrypt.js";
 import { success } from "../Middleware/error.js";
 import User from "../Models/userModel.js";
@@ -33,7 +33,7 @@ const createUser = expressAsyncHandler(async (req, res) => {
   try {
     let result = await User.create({
       ...req.body,
-      password: cryptoEncryptPassword(req.body.password),
+      password: encryptPassword(req.body.password),
     });
     res.status(201).send({ success: "User created", result });
   } catch (error) {
@@ -54,7 +54,7 @@ const updateUser = expressAsyncHandler(async (req, res) => {
   try {
     let result = await User.findByIdAndUpdate(req.params.userId, {
       ...req.body,
-      password: cryptoEncryptPassword(req.body.password),
+      password: encryptPassword(req.body.password),
     });
     res.status(201).send({ success: "User updated", result });
   } catch (error) {
