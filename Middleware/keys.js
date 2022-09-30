@@ -27,5 +27,15 @@ export const authenticateHeader = async (req, res, next) => {
 
 //secret key publish key generator
 
-// const key = aes256.encrypt("ashu1@gmail.com", "aaa");
-// console.log(key);
+// const key = "ashu@gmail.com";
+// const plaintext = "aaa";
+// const buffer = Buffer.from(plaintext);
+
+// const encryptedPlainText = aes256.encrypt(key, plaintext);
+// const decryptedPlainText = aes256.decrypt(key, encryptedPlainText);
+
+// const secretKey = aes256.encrypt(key, plaintext);
+// console.log(secretKey);
+
+// const publishKey = aes256.encrypt(key, plaintext);
+// console.log(publishKey);

@@ -12,6 +12,7 @@ import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
 
 const createUser = expressAsyncHandler(async (req, res) => {
+
   let validatorCheck = new Validator(req.body, {
     firstName: "required",
     email: "required|email",
